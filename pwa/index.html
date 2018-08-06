@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>PWA Demo</title>
+  <link rel="stylesheet" href="./css/index.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+  <h3>This is a PWA demonstration</h3>
+  <p class="demonstration">Below is a service worker lifecycle demonstration</p>
+  <img class="img" src="./images/sw-lifecycle.png" alt="network" style="width: 300px" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js', {
+        scope: '/pwa/'
+      }).then(function(sw) {
+        console.log('register succeed: ');
+        // registration worked!
+      }).catch(function(err) {
+        console.log('register failed: ', err);
+        // registration failed :(
+      });
+    }
+  </script>
+</body>
+</html>
